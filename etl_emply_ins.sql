@@ -1,31 +1,31 @@
+select * from employment
+
 CREATE TABLE unemployment (
-    State varchar(20)   NOT NULL,
-    labor_force varchar(100)   NOT NULL,
-    total_unemp varchar(100)   NOT NULL,
-    ins_unemp varchar(100)   NOT NULL
+    State varchar(20) ,
+    labor_force varchar(100) ,
+    total_unemp varchar(100) ,
+    ins_unemp varchar(100) 
 );
 
 CREATE TABLE employment (
-    State varchar (100) ,
-    Ownership varchar(100)   NOT NULL,
-    Industry VARCHAR   NOT NULL,
-    est_count VARCHAR  NOT NULL,
-    tot_q1_wages VARCHAR NOT NULL
+    State varchar ,
+    ownership varchar(100) ,
+    Industry VARCHAR ,
+    est_count VARCHAR ,
+    tot_q1_wages VARCHAR
     
 );
 
 CREATE TABLE us_employment (
-    country VARCHAR   NOT NULL,
-    ownership varchar(100) NOT NULL,
-    Industry VARCHAR   NOT NULL,
-    est_count VARCHAR NOT NULL,
-    tot_q1_wages VARCHAR NOT NULL
+    country VARCHAR ,
+    ownership varchar(100) ,
+    Industry VARCHAR ,
+    est_count VARCHAR ,
+    tot_q1_wages VARCHAR
 );
 
-select * us_employment
 
-SELECT * FROM us_employment
-
-select * employment
-
-select * department_mgr
+SELECT employment.state, employment.Ownership, employment.est_count, 
+FROM employment
+JOIN unemployment
+ON unemployment.State = unemployment.labor_force;
